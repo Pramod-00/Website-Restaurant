@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Chutkula's Kitchen</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Login Popup -->
+<div id="login-popup" class="popup hidden">
+    <div class="popup-content">
+        <a href="#" class="close-btn" onclick="closeLoginPopup()">&times;</a>
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder="Enter Username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter Password" required>
+            <button type="submit" class="button">Login</button>
+        </form>
+        <button id="google-login" class="button">Continue with Google</button>
+    </div>
+</div>
+
+<!-- Google Login Popup -->
+<div id="google-login-popup" class="popup hidden">
+    <div class="popup-content">
+        <a href="#" class="close-btn" onclick="closeGoogleLoginPopup()">&times;</a>
+        <h2>Google Login</h2>
+        <form id="google-login-form">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter Email" required>
+            <button type="submit" class="button">Login</button>
+        </form>
+    </div>
+</div>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <!-- Logo in Top Left Corner -->
+            <a href="#home" id="logo-link" title="Return to Home" >
+                <img src="logo.png" alt="Chutkula's Kitchen Logo">
+            </a>
+            <h1 style="align-self: center; color:black;">CHUTKULA'S KITCHEN</h1>
+            <style>
+                /* Define the bounce animation */
+                @keyframes bounce {
+                  0%, 50% {
+                    transform: translateY(0);
+                  }
+                  20% {
+                    transform: translateY(-20px);
+                  }
+                }
+            
+                /* Apply the animation to the heading */
+                h1 {
+                  display: inline-block;
+            
+                  animation: bounce 5s infinite;
+                }
+              </style>
+            <!-- Navigation Menu -->
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+            <!-- Add Login Button -->
+        <div id="login-button" class="button">Login</div>
+        <!-- User Icon -->
+<div id="user-icon" class="hidden">
+    <img src="user_icon.png" alt="User Icon" class="user-icon-img">
+</div>
+
+        <!-- Cart Icon in the Top Right Corner -->
+        <div id="cart-icon" title="View Your Cart">
+            <img src="cart_icon.png" alt="Cart">
+        </div>
+    </header>
+    
+
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="cart-modal hidden">
+        <div class="cart-content">
+            <h2>Your Cart</h2>
+            <ul id="cart-items"></ul>
+            <p id="cart-total">Total: $0.00</p>
+            <button id="close-cart" class="button">Close</button>
+        </div>
+    </div>
+    
+    <!-- Main Banner -->
+    <section id="home" class="banner">
+        <div class="overlay"></div>
+        <div class="banner-content">
+            <h2 style="color: #f2f700;">Savor the Symphony of Indian Flavors</h2 >
+            <p style="color: #f2f700;">Indulge in an unforgettable culinary journey where spices dance and aromas embrace your soul.</p>
+            <a href="#menu" class="button">Explore Our Menu</a>
+            <a href="#reservationPopup" class="button">Reserve Your Table</a>
+        </div>
+    </section>
+
+
+
+<!-- Popup Structure -->
+<div id="reservationPopup" class="popup">
+    <div class="popup-content">
+        <a href="#" class="close-btn">&times;</a> <!-- Close Button -->
+        <h2>Reserve Your Table</h2>
+        <form>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <label for="numPeople">Number of People:</label>
+            <input type="number" id="numPeople" name="numPeople" min="1" required>
+
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10}" required>
+
+            <button type="submit" class="button">Submit</button>
+        </form>
+    </div>
+</div>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <h2>Our Menu</h2>
+            <h3>Food</h3>
+            <div class="menu-items">
+                <div class="dish" data-name="CHICKEN TIKKA" data-price="12.99">
+                   
+                    <img src="chicken_tikka_masala.jpg" alt="Chicken Tikka Masala">
+                    <h3>CHICKEN TIKKA</h3>
+                 <button class="add-to-cart-button">Add to Cart</button>   
+            </div>
+                <div class="dish" data-name="LAMB ROGAN JOSH" data-price="10.99">
+                   
+                    <img src="lamb_rogan_josh.jpg" alt="Lamb Rogan Josh">
+                    <h3>LAMB ROGAN JOSH</h3>
+                 <button class="add-to-cart-button">Add to Cart</button>   
+            </div>
+                <div class="dish" data-name="VEGETABLE KORMA" data-price="8.99" >
+                   
+                    <img src="vegetable_korma.jpg" alt="Vegetable Korma">
+                    <h3>VEGETABLE KORMA</h3>
+                 <button class="add-to-cart-button">Add to Cart</button>   
+            </div>
+                <div class="dish" data-name="SAAG PANEER" data-price="7.99" >
+                    <img src="saag_paneer.jpg" alt="Vegetable Korma">
+                    <h3>SAAG PANEER</h3>
+                 <button class="add-to-cart-button">Add to Cart</button>   
+            </div>
+                <div class="dish" data-name="ALOO GOBI" data-price="6.99" >
+                   
+                    <img src="aloo_gobi.jpg" alt="Vegetable Korma">
+                    <h3>ALOO GOBI</h3>
+                 <button class="add-to-cart-button">Add to Cart</button>   
+            </div>
+                <div class="dish" data-name="CHANA MASALA" data-price="6.99" >
+                   
+                    <img src="chana_masala.jpg" alt="Vegetable Korma">
+                    <h3>CHANA MASALA</h3>
+                 <button class="add-to-cart-button">Add to Cart</button>   
+            </div>
+                <div class="dish" data-name="BAINGAN MASALA" data-price="4.99" >
+                   
+                    <img src="baingan_masala.jpg" alt="Vegetable Korma">
+                    <h3>BAINGAN MASALA</h3>
+                 <button class="add-to-cart-button">Add to Cart</button>   
+            </div>
+                <div class="dish" data-name="DAL MAKHANI" data-price="10.99" >
+                   
+                    <img src="daal_makhani.jpg" alt="Vegetable Korma">
+                    <h3>DAL MAKHANI</h3>
+                 <button class="add-to-cart-button">Add to Cart</button>   
+            </div>
+                <div class="dish" data-name="SAMOSA" data-price="3.99" >
+                   
+                    <img src="samosa.jpg" alt="Vegetable Korma">
+                    <h3>SAMOSA</h3>
+                 <button class="add-to-cart-button">Add to Cart</button>   
+            </div>
+                <div class="dish" data-name="BUTTER CHICKEN" data-price="11.99" >
+                   
+                    <img src="butter_chicken.jpg" alt="Vegetable Korma">
+                    <h3>BUTTER CHICKEN</h3>
+                 <button class="add-to-cart-button">Add to Cart</button>   
+            </div>
+                <div class="dish" data-name="DUM BIRYANI" data-price="17.99" >
+                   
+                    <img src="biriyani.jpg" alt="Vegetable Korma">
+                    <h3>DUM BIRYANI</h3>
+                 <button class="add-to-cart-button">Add to Cart</button>   
+            </div>
+                <div class="dish" data-name="MUTTON KABAB" data-price="20.99" >
+                   
+                    <img src="kabab.jpg" alt="Vegetable Korma">
+                    <h3>MUTTON KABAB</h3>
+                 <button class="add-to-cart-button">Add to Cart</button>   
+            </div>
+                <!-- Add more dishes -->
+            </div>
+            <h3>Beverages</h3>
+            <div class="menu-items">
+                <div class="dish" data-name="MASALA CHAI" data-price="5.99" >
+                   
+                    <img src="CHAI.jpg" alt="Chicken Tikka Masala">
+                    <h3>MASALA CHAI</h3>
+                 <button class="add-to-cart-button">Add to Cart</button>   
+            </div>
+                <div class="dish" data-name="MANGO LASSI" data-price="7.99" >
+                   
+                    <img src="LASSI.jpg" alt="Lamb Rogan Josh">
+                    <h3>MANGO LASSI</h3>
+                 <button class="add-to-cart-button">Add to Cart</button>   
+            </div>
+                <div class="dish" data-name="FILTER COFFEE" data-price="8.99" >
+                   
+                    <img src="COFFEE.jpg" alt="Vegetable Korma">
+                    <h3>FILTER COFFEE</h3>
+                 <button class="add-to-cart-button">Add to Cart</button>   
+            </div>
+                <div class="dish" data-name="COCONUT WATER" data-price="2.99" >
+                   
+                    <img src="COCONUT_WATER.jpg" alt="Vegetable Korma">
+                    <h3>COCONUT WATER</h3>
+                 <button class="add-to-cart-button">Add to Cart</button>   
+            </div>
+                <div class="dish" data-name="LEMONADE" data-price="2.99" >
+                   
+                    <img src="LEMONADE.jpg" alt="Vegetable Korma">
+                    <h3>LEMONADE</h3>
+                 <button class="add-to-cart-button">Add to Cart</button>   
+            </div>
+                <div class="dish" data-name="COKE COMBO" data-price="11.99" >
+                   
+                    <img src="COKE.jpg" alt="Vegetable Korma">
+                    <h3>COKE, FANTA, SPRITE</h3>
+                 <button class="add-to-cart-button">Add to Cart</button>   
+            </div>
+                <div class="dish" data-name="VIRGIN MOJITO" data-price="3.99" >
+                   
+                    <img src="MOJITO.jpg" alt="Vegetable Korma">
+                    <h3>VIRGIN MOJITO</h3>
+                 <button class="add-to-cart-button">Add to Cart</button>   
+            </div>
+                <div class="dish" data-name="PINK HEAVEN" data-price="5.99" >
+                   
+                    <img src="PINK.jpg" alt="Vegetable Korma">
+                    <h3>PINK HEAVEN</h3>
+                 <button class="add-to-cart-button">Add to Cart</button>   
+                </div>
+                <!-- Add more dishes -->
+            </div>
+        </div>
+    </section>
+
+ <!-- About Us Section -->
+ <section id="about" class="about">
+    <div class="container">
+        <h2>About Us</h2>
+        <p>Chutkula's Kitchen specializes in authentic Indian cuisine made with fresh, high-quality ingredients. Founded by Pramod Pandey, we are committed to providing a warm and inviting dining experience.</p>
+        <div class="team">
+            <div>
+                <img src="pramod_pandey.jpg" alt="Pramod Pandey">
+                <h3>Pramod Pandey</h3>
+                <p>Owner & Head Chef</p>
+            </div>
+            <div>
+                <img src="aayushma_sharma.jpg" alt="Aayushma Sharma">
+                <h3>Aayushma Sharma</h3>
+                <p>Assistant Chef</p>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Contact Us Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Email: contact@chutkulaskitchen.com</p>
+            <p>Phone: +1 (512) 123-4532</p>
+            <p>Location: San Marcos, Texas</p>
+        </div>
+    </section>
+    
+    <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2024 Chutkula's Kitchen. All rights reserved.</p>
+    </footer>
+</body>
+</html>

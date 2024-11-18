@@ -1,0 +1,665 @@
+/* Login Button */
+#login-button {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    cursor: pointer;
+    padding: 2px 2px;
+    background-color: #000000;
+    color: #f2f700;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transform-origin: center;
+    transition: transform 0.2s ease-in-out;
+}
+/* User Icon Styling */
+#user-icon {
+    position: absolute;
+    top: 42px;
+    right: 45px; /* Match the login button's position */
+    cursor: pointer;
+    display: none; /* Initially hidden */
+}
+
+.user-icon-img {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%; /* Circular icon */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.user-icon-img:hover {
+    transform: scale(1.1);
+}
+
+
+#login-button:hover {
+    background-color: #0056b3;
+}
+/* Fade Out Animation */
+.popup {
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Shake Animation */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+/* Logged-In State Styling */
+body.logged-in {
+    background: #e6ffe6; /* Optional: Change background for logged-in state */
+    transition: background 0.5s ease-in-out;
+}
+
+/* Popup Overlay and Styling */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    animation: popup 0.3s ease-in-out;
+}
+
+.popup-content input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.popup-content button {
+    margin-top: 10px;
+}
+
+
+#logo-link img {
+    height: 100px; /* Adjust logo size */
+    max-height: 100%;
+    transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+#logo-link img:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+.popup.hidden {
+    display: none;
+}
+/* Header Styles */
+.header {
+    position: sticky;
+    top: 0;
+    height: 50px;
+    background: #e4e491;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: slideIn 2s ease-in-out;
+    z-index: 1000;
+
+}
+/* Logo in Top Left Corner */
+#logo-link {
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Navigation Menu */
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #000;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.3s;
+}
+    
+
+/* Cart Icon */
+#cart-icon {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    cursor: pointer;
+    transform-origin: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+#cart-icon:hover {
+    transform: rotate(15deg);
+}
+
+.popup-content {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    width: 10%;
+    max-width: 100px;
+    text-align: center;
+    position: relative;
+}
+
+.popup-content label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+.popup-content input {
+    width: 10%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.popup-content .button {
+    background: #007bff;
+    color: white;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Notification Styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #e4e491;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    z-index: 1000;
+    opacity: 40%;
+    animation: fadeOut 2s ease-out;
+}
+
+/* Fade-out effect */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+p {
+    text-align: center;
+    line-height: 1.6;
+    color: #666;
+}
+/*header*/
+
+.header h1 {
+    justify-content: center;
+    margin: 0;
+    align-self: center;
+}
+
+/* Cart Modal */
+.cart-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Dim background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.cart-modal.hidden {
+    display: none;
+}
+
+.cart-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    animation: popup 0.3s ease-in-out; /* Smooth animation */
+}
+
+/* Remove Button Styling */
+.cart-content .remove {
+    background-color: #dc3545; /* Bootstrap-style red */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.cart-content .remove:hover {
+    background-color: #c82333; /* Darker red for hover */
+}
+
+/* Animation for Popup */
+@keyframes popup {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Cart Items */
+#cart-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-content ul li {
+    margin: 10px 0;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Close Button */
+.cart-content .button {
+    background: #dc3545;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-content .button:hover {
+    background: #c82333;
+}
+
+.cart-modal.hidden {
+    display: none;
+}
+
+.cart-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.cart-content h2 {
+    margin-bottom: 20px;
+}
+
+.cart-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.cart-content ul li {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.cart-content button {
+    margin-top: 20px;
+}
+/* Cart Icon */
+#cart-icon img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+/* Add to Cart Button */
+.add-to-cart-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.add-to-cart-button:hover {
+    background-color: #218838;
+}
+.header nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0.1;
+    
+}
+
+.header nav ul li {
+    justify-content: center;
+    margin: 0 10px;
+}
+
+.header nav ul li a {
+    justify-content: center;
+
+    color: #000000;
+    text-decoration:wavy;
+    font-weight: bold;
+    font-size: medium;
+}
+
+/* General Styles */
+.button {
+    background: #FFD700;
+    color: black;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.button:hover {
+    background: #FFA500;
+}
+
+/* Popup Styles */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup:target {
+    display: flex; /* Show popup when targeted */
+}
+
+.popup-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    text-align: left;
+    position: relative;
+}
+
+.popup-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.popup-content label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #666;
+}
+
+.popup-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.popup-content .button {
+    width: 100%;
+    background: #8B0000;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup-content .button:hover {
+    background: #B22222;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    color: #333;
+    text-decoration: none;
+}
+
+.close-btn:hover {
+    color: #8B0000;
+}
+
+
+/* Banner */
+.banner {
+    background: url('restaurant_banner.jpg') no-repeat center center/cover;
+    background-size: cover;
+    background-position:  center;
+    color: white;
+    padding: 100px ;
+    nav-up: auto;
+    text-align:start;
+}
+
+.banner .button {
+    background: #FFD700;
+    color: black;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+/* Banner Enhancements */
+.banner {
+
+    position: relative;
+    background: url('restaurant_banner.jpg') no-repeat center center/cover;
+    background-size: cover;
+    background-position:  center;
+    color: white;
+    padding: 250px 0;
+    text-align: center;
+}
+
+.banner .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Slight dark overlay */
+    z-index: 1;
+}
+
+.banner-content {
+    position: relative;
+    z-index: 2;
+}
+
+.banner h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.banner p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.banner .button {
+    background: #f2f700;
+    color: black;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 0 10px;
+    transition: transform 0.3s ease-in-out; 
+}
+
+.banner .button:hover {
+    background: #FFA500; /* Darker gold shade on hover */
+}
+
+
+
+/* About Us */
+.about {
+    padding: 50px 0;
+    background: #f4f4f4;
+    text-align: center;
+}
+
+.about .team {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.about .team div {
+    text-align: center;
+}
+
+.about .team img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* Uniform Image Styling */
+.img-container img, .menu .dish img {
+    width: 200px; /* Consistent width */
+    height: 200px; /* Consistent height */
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 10px;
+    margin: 10px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: block;
+    overflow: hidden;
+}
+
+/* Optional Hover Effect for Images */
+.img-container img:hover, .menu .dish img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* Menu */
+.menu {
+    padding: 50px 0;
+}
+
+.menu-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.menu .dish {
+    width: 250px;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
