@@ -1,14 +1,14 @@
 /* Login Button */
 #login-button {
     position: absolute;
-    top: 60px;
+    top: 54px;
     right: 60px;
     cursor: pointer;
     padding: 2px 2px;
     background-color: #000000;
     color: #f2f700;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     font-weight: bold;
     transform-origin: center;
     transition: transform 0.2s ease-in-out;
@@ -36,7 +36,7 @@
 
 
 #login-button:hover {
-    background-color: #0056b3;
+    background-color: #027f14;
 }
 /* Fade Out Animation */
 .popup {
@@ -663,3 +663,21 @@ footer {
     padding: 10px 0;
     margin-top: 20px;
 }
+
+/*cart to excel button style*/
+.button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+

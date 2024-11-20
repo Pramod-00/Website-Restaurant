@@ -216,3 +216,39 @@ function updateCartDisplay() {
         });
     });
 }
+
+
+//cart to excel 
+// Function to export cart to Excel
+function exportCartToExcel() {
+    if (cart.length === 0) {
+        alert("Your cart is empty. Nothing to export!");
+        return;
+    }
+
+    // Prepare data for the Excel sheet
+    const sheetData = [
+        ["Item Name", "Price", "Quantity", "Total"], // Header row
+        ...cart.map(item => [item.name, item.price.toFixed(2), item.quantity, (item.price * item.quantity).toFixed(2)]),
+    ];
+
+    // Create a new workbook and add the sheet
+    const workbook = XLSX.utils.book_new();
+    const worksheet = XLSX.utils.aoa_to_sheet(sheetData);
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Cart");
+
+    // Save the file as cart.xlsx
+    XLSX.writeFile(workbook, "cart.xlsx");
+
+    alert("Cart exported to cart.xlsx");
+}
+
+// Add an export button in the cart modal
+const exportButton = document.createElement("button");
+exportButton.textContent = "Export";
+exportButton.className = "button";
+exportButton.addEventListener("click", exportCartToExcel);
+
+// Append the button to the cart modal
+document.querySelector(".cart-content").appendChild(exportButton);
+
